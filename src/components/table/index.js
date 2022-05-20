@@ -33,7 +33,7 @@ const tableHeader = [
 const Table = () => {
   const { error, loading, data } = useQuery(LOAD_EPOCH);
 
-  // custom hook for getting the data and search filter
+  // custom hook for getting the data search filter, and sort.
   const { tableData, setSearch, setSorting } = useGetData(data);
 
   // custom hook for pagination
