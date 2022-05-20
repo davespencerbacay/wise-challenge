@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Container } from "react-bootstrap";
+import Header from "./components/header";
+import Table from "./components/table";
+import { ApolloProvider } from "@apollo/client";
+import { client } from "./apollo/GraphQL";
 
-function App() {
+export const applicantBriefInfo = {
+  name: "Dave Spencer Bacay",
+  dateTaken: "May 20, 2022",
+};
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Header />
+      <Container>
+        <ApolloProvider client={client}>
+          <Table />
+        </ApolloProvider>
+      </Container>
+    </React.Fragment>
   );
-}
+};
 
 export default App;
